@@ -1,19 +1,45 @@
 # Global use for React components
 
-The goal for this project is to create a React setup where components which are used more than once a structured in this way.
+The goal for this project is to create a React setup where components which are used more than once are structured in the following way.
 
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+const Structure = () => {
+  return (
+    <Layout __type="container">
+      <Card __type="primary">
+        <Text __type="h1" primary>
+          Global use for React components
+        </Text>
+        <Button __type="default">Next</Button>
+      </Card>
+    </Layout>
+  );
+};
 ```
 
 ## How to structure your code this way?
 
 ### 1. Create a global component
 
-Is this example I created a component with the name `Card`. This component will receive the type of `Card` and returns the associated `Card`.  
+Is this example I created a component with the name `Card`. This component will receive the a prop with the name `__type` and returns the associated `Card` for this type.
 
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+// Cards
+import DefaultCard from "./DefaultCard";
+import SecondaryCard from "./SecondaryCard";
+import UserCard from "./UserCard";
+
+const cards = {
+  default: DefaultCard,
+  secondary: SecondaryCard,
+  user: UserCard
+};
+
+const Card = ({ __type, ...props }) => {
+  const Comp = cards[__type];
+  if (typeof cards[__type] === "undefined") {
+    return null;
+  }
+  return Comp && <Comp {...props} />;
+};
 ```
