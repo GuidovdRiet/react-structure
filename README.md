@@ -3,6 +3,12 @@
 The goal for this project is to create a React setup where components which are used more than once are structured in the following way.
 
 ```javascript
+// Components
+import Layout from "./Layout";
+import Card from "./Card";
+import Text from "./Text";
+import Button from "./Button";
+
 const Structure = () => {
   return (
     <Layout __type="container">
@@ -10,11 +16,13 @@ const Structure = () => {
         <Text __type="h1" primary>
           Global use for React components
         </Text>
-        <Button __type="default">Next</Button>
+        <Button __type="default">Next →</Button>
       </Card>
     </Layout>
   );
 };
+
+export default Structure;
 ```
 
 ## How to structure your code this way?
@@ -42,4 +50,6 @@ const Card = ({ __type, ...props }) => {
   }
   return Comp && <Comp {...props} />;
 };
+
+export default Card;
 ```
