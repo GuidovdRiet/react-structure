@@ -59,6 +59,6 @@ export default Card;
 [setup]: /img/Start.jpg "Setup style"
 
 - Every project uses the same code structure.
-⋅⋅* This way every developer in the team knows about what type of component you are talking about during a conversation. 
+⋅⋅⋅ This way every developer in the team knows about what type of component you are talking about during a conversation. 
 - New members of the team can easily understand the code structure of the project.
 * Visually you will understand the code in a component faster because the logic for every group of components is nested one level deeper in your application (check the above image).
