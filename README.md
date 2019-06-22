@@ -27,9 +27,7 @@ export default Structure;
 
 ## How to structure your code this way?
 
-### 1. Create a global component
-
-Is this example I created a component with the name `Card`. This component will receive the a prop with the name `__type` and returns the associated `Card` for this type.
+Is this example I created a component with the name `Card`. This component will receive a property with the name `__type`. This `__type` selects the right component in the `cards object` and returns the associated `Card` component for this type.
 
 ```javascript
 // Cards
@@ -53,3 +51,12 @@ const Card = ({ __type, ...props }) => {
 
 export default Card;
 ```
+
+## What did I accomplish by using this setup?
+
+![alt text][setup]
+
+[setup]: /img/Start.jpg "Setup style"
+
+- Every project uses the same code structure.
+- New members in your team
